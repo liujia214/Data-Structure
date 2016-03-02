@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    for (var i = 0; i < 5; i++) {
+        var btn = document.createElement('button');
+        btn.appendChild(document.createTextNode('Button ' + i));
+        btn.addEventListener('click', (function(i){return function(){ console.log(i); }})(i));
+        document.body.appendChild(btn);
+    }
+    for (var i = 0; i < 5; i++) {
+        var btn = document.createElement('button');
+        btn.appendChild(document.createTextNode('Button ' + i));
+        btn.addEventListener('click', (function(i){ console.log(i); }).bind(null,i));
+        document.body.appendChild(btn);
+    }
+</script>
+</body>
+</html>
